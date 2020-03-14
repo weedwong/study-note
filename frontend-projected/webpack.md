@@ -56,6 +56,6 @@ webpack是JavaScript项目最流行的打包器，可以把非js文件打包成�
    ```
 
    然后在浏览器打开`index.html`,`main.js` 和 `module.js`已经被打包到`dist/bundle.js`中并被`index.html`文件加载了
-3. 
+<!-- 3. 
 
-4. Gggggg
+4. Gggggg -->

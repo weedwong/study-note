@@ -5,6 +5,7 @@
 
 
 
+<<<<<<< HEAD
 ## JavaScript文档
 
 ## HTML文档
@@ -18,3 +19,10 @@
 1. [webpack使用手册](./frontend-projected/webpack.md)
 
 ## 技术栈相关
+=======
+## 前端工程化
+
+1. [webpack使用手册]: ./frontend-projected/webpack.md
+
+   
+>>>>>>> c9c5acc6e902f63df8e7a042d95d0023607b754e
