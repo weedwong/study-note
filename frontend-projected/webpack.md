@@ -55,6 +55,7 @@ webpack是JavaScript项目最流行的打包器，可以把非js文件打包成�
    webpack main.js -o dist/bundle.js
 
    <!-- main.js 是入口文件， bundle.js 是打包出来的文件 -->
+   <!-- 因为webpack版本不一样，命令后面后的 -o 有时是必须有时不是 -->
    ```
 
    然后在浏览器打开`index.html`,可以看到`main.js` 和 `module.js`已经被打包到`dist/bundle.js`中并被`index.html`文件加载了
@@ -109,7 +110,7 @@ webpack是JavaScript项目最流行的打包器，可以把非js文件打包成�
 
 ## 配置加载器
 
->  一切皆模块
+>  一切皆模块,加载器就是把所有的资源加载为js模块，所有加载器是配置在`module`属性中（我猜的）
 
    如果项目中需要打包css,图片等文件，这个时候就需要用到加载器`loader`,`loader` 相当于扩展了`webpack`的能力，让它能处理更多类型的文件
 
@@ -184,3 +185,100 @@ webpack是JavaScript项目最流行的打包器，可以把非js文件打包成�
    这样一个最基本的依赖打包配置就完成了
 
 ## 配置插件
+
+>  插件可以对原有代码做一些特殊处理，比如代码压缩
+
+   这里先配置一个插件用来做资源压缩
+
+   首先用命令`npm i uglifyjs-webpack-plugin --save-dev`
+
+   接着修改配置文件
+
+   ```javascript
+   const path = require('path');
+   const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+
+   module.exports = {
+      entry: './main.js',
+      output: {
+         path: path.join(__dirname, 'dist'),
+         filename: 'bundle.js'
+      },
+      module: {
+         loaders: [
+               {
+                  test: /\.css/,
+                  loader: 'style-loader!css-loader'
+               }
+         ]
+      },
+      plugins: [
+         new UglifyJSPlugin()
+      ]
+   }
+   ```
+
+   这样我们打包出来的文件就是压缩过的了，代码的可读性差但是体积小很多
+
+## 按需加载
+
+   `Webpack` 支持异步加载模块的特性，从原理上说其实很简单——就是动态地向页面中插入 script 标签。在代码层面，Webpack 支持两种方式进行异步模块加载，一种是 CommonJS 形式的 require.ensure，一种是 ES6 Module 形式的异步 import()。
+
+   首先加载一个新的模块`log.js`,
+
+   ```javascript
+   export const log = function() {
+    console.log('this is log.js.'); // 异步加载要注意 不能直接使用 document.write
+   }
+   ```
+
+   修改`main.js`：
+
+   ```javascript
+   import myModule from './module.js';
+   import('./log.js').then(module => {
+    module.log();
+   }).catch(error => 'An error occurred while loading the module');
+   document.write('this is main.js');
+   myModule();
+
+   ```
+
+   修改配置文件
+
+   ```javascript
+   const path = require('path');
+   const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+
+   module.exports = {
+      entry: './main.js',
+      output: {
+         path: path.join(__dirname, 'dist'),
+         publicPath: './dist/', // 工程中有按需加载以及图片和文件等外部资源时就需要它来配置这些资源的路径
+         filename: 'bundle.js'
+      },
+      module: {
+         loaders: [
+               {
+                  test: /\.css/,
+                  loader: 'style-loader!css-loader'
+               }
+         ]
+      },
+      plugins: [
+         new UglifyJSPlugin()
+      ]
+   }
+   ```
+
+   重新打包之后你会发现打包结果中多出来一个 `0.bundle.js`，这里面就是将来会被异步加载进来的内容
+
+## 其他配置
+
+   1. tree-shaking
+   2. scope-hoisting
+   3. devServer.proxy
+   4. 公共模块
+   5. 多页应用打包
+   6. loader option
+   7. sourceMap
