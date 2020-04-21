@@ -1,4 +1,7 @@
-1. 对象迭代行为
+
+# 对象数组相关
+
+## 1. 对象迭代行为
 
   ```javascript
   var obj = { x: 1, y: 2, z: 3};
@@ -38,11 +41,21 @@
   ```javascript
   //  方法二
   //  使用 generator 函数来定制对象的迭代行为
-    var obj = { x: 1, y: 2, z: 3};
-    obj[Symbol.iterator] = function*() {
-      yield 1;
-      yield 2;
-      yield 3;
-    }
-    [...obj]
+  var obj = { x: 1, y: 2, z: 3};
+  obj[Symbol.iterator] = function*() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+  [...obj]
+  ```
+
+## 2. 数组去重
+
+# 执行环境相关
+
+## 1. 变量赋值行为
+
+  ```javascript
+  
   ```

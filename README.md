@@ -7,6 +7,8 @@
 
 ## JavaScript文档
 
+1. [JavaScript 节流和防抖函数](./javascript/throttle-debounce.md)
+
 ## HTML文档
 
 ## CSS文档
@@ -21,4 +23,4 @@
 
 ## 前端面试题
 
-1. [js相关]（./interview-questions/javascript.md）
+1. [JavaScript 面试题](/interview-questions/javascript.md)
