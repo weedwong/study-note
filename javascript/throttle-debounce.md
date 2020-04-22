@@ -27,7 +27,7 @@ window.onscroll = function () {
 }
 ```
 
-这样每滚动一次，实际上会打印多个 hello world。我们通过节流函数，十七每隔1000ms执行一次；
+这样每滚动一次，实际上会打印多个 hello world。我们通过节流函数，使其每隔1000ms执行一次；
 
 ```js
 var throttle = function(action, delay) {
