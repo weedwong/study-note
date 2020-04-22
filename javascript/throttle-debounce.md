@@ -111,4 +111,4 @@ function debounce(delay, action) {
 window.onscroll = debounce(1000, print);
 ```
 
-参考：[JavaScript 函数节流和函数去抖]()
+参考：[JavaScript 函数节流和函数去抖](https://webfem.com/post/debounce)
