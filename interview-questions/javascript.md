@@ -49,14 +49,14 @@
   }
   [...obj]
   ```
-## 3. new 操作符
+## 2. new 操作符
 
   1. new操作符做了什么
 
   new 运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象的实例。
   new 关键字会进行如下的操作：
-  - 创建一个空对象；
-  - 设置原型链，链接该对象（即设置该对象的构造函数）到另一个对象 ；
+  - 创建一个空对象(即obj)；
+  - 设置原型链，链接该对象（即设置该对象的构造函数）到另一个对象 (即obj._proto_ = FUNC.prototype)；
   - 绑定上下文，让构造函数的this指向创建的空对象 ；
   - 判断函数返回的类型，如果返回的是一个对象就返回这个对象，否则就返回创建的空对象。
 
@@ -85,7 +85,66 @@
   console.log('company1: ', company1);
 ```
 
-## 2. 数组去重
+## 3. 数组去重
+
+  - 利用set成员的唯一性
+
+  ```javascript
+  function uniq(arr) {
+    return [...new Set(arr)];
+  }
+  ```
+
+  - 利用对象key的唯一性
+
+  ```javascript
+  function uniq(arr) {
+    const obj = {};
+    const newArr = [];
+    arr.forEach(ele => {
+      if(!obj[ele]) {
+        newArr.push(ele)
+      }
+    });
+    return newArr;
+  }
+  ```
+
+  - 利用数组的reduce方法
+
+  ```javascript
+  function uniq(arr) {
+    return arr.reduce((prev, cur) => prev.includes(cur) ? prev : [...prev, cur], []);
+  }
+  ```
+
+  - 利用indexOf属性
+
+  ```javascript
+  function uniq(arr) {
+    var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (newArr.indexOf(arry[i]) === -1) {
+        newArr.push(arry[i])
+      }
+    }
+    return newArr;
+  }
+  ```
+  - 利用includes
+
+  ```javascript
+  function uniq(arr) {
+  var newArr = [];
+    for (var i = 0; i < arr.length; i++) {
+      if (!newArr.includes(arry[i])) {
+        newArr.push(arry[i])
+      }
+    }
+    return newArr;
+  }
+  ```
+
 
 # 执行环境相关
 
