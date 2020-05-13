@@ -8,11 +8,11 @@
 
 ## 除此之外还可以通过以下方法处理延迟问题
 
-1. 设置<meta name="viewport" content="user-scalable=no" />
+1. 设置`<meta name="viewport" content="user-scalable=no" />`
 
 通过此设置禁用浏览器缩放功能，缺点是浏览器无法缩放，双指缩放也会失效
 
-2. 设置<meta name="viewport" content="width=device-width, initial-scale=1">
+2. 设置`<meta name="viewport" content="width=device-width, initial-scale=1">`
 
 较高级的浏览器都会在看到这个meta标签的时候都会移除300ms的点击判断。
 缺点大概就是兼容性；如果你需要兼容很低版本的浏览器，最好先测试一下这个标签能不能有效果

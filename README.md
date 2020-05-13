@@ -9,6 +9,7 @@
 ## JavaScript文档
 
 1. [JavaScript 节流和防抖函数](./javascript/throttle-debounce.md)
+2. [JavaScript FastClick.js](./javascript/fast-click.md)
 
 ## HTML文档
 
