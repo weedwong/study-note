@@ -18,7 +18,7 @@
 
 ## CSS文档
 
-1. [sass使用手册](./css/sass.md)
+1. [sass 使用手册](./css/sass.md)
 2. flex-box
 
 ## DOM && BOM
@@ -27,9 +27,10 @@
 
 ## 前端工程化
 
-1. [webpack使用手册](./frontend-projected/webpack.md)
+1. [webpack 使用手册](./frontend-projected/webpack.md)
 
 ## 技术栈相关
+1. [Redux 使用手册](./web-frame/redux.md)
 
 ## 前端面试题
 
