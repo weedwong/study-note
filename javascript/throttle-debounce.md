@@ -42,7 +42,7 @@ var throttle = function(action, delay) {
 }
 ```
 
-第二种方法是使用定时器，比如，当scroll事件刚触发时，打印一个hello world ，然后设置一个1000ms的定时器，此后每次触发scroll事件，触发回调，如果已经存在定时器，则回调不执行方法，直到定时器出发，handler被清除，然后重新设置定时器。
+第二种方法是使用定时器，比如，当scroll事件刚触发时，打印一个hello world ，然后设置一个时间间隔为delay的定时器，此后每次触发scroll事件，触发回调，如果已经存在定时器，则回调不执行方法，直到定时器出发，handler被清除，然后重新设置定时器。
 
 ```js
 function throttlePro(action, delay) {
