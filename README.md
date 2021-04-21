@@ -38,4 +38,4 @@
 
 ## 其他
 
-1. []
+1. [MySQL 安装指南（mac）](/more/mysql-install.md)
