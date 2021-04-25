@@ -165,10 +165,28 @@
   ```
 
 
-# 执行环境相关
+# 查找字符串中最长不重复子串的长度
 
-## 1. 变量赋值行为
+```js
+function longeststr(str){
+    let i=0
+    let j=1
+    let subStr = str.substring(i,j)
+    let maxVal=1
+    let len = str.length
+    while(i<len&&j<len){
+    
+      let val_j=str[j]
+      if(subStr.includes(val_j)){
+        i++;
+        subStr = subStr.substring(1);
+      }else{
+        j++;
+        subStr+=val_j
+        maxVal = Math.max(maxVal,j-i)
+      } 
+    }
+   return maxVal;
+}
+```
 
-  ```javascript
-  
-  ```
